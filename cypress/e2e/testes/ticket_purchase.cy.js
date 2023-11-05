@@ -19,7 +19,7 @@ describe("Testing the Sport Club Internacional ticker purchase flow", () => {
 
     cy.get("#input-19").type(Cypress.env("username"));
 
-    cy.get("#input-22").type(Cypress.env("password"),{ log: false });;
+    cy.get("#input-22").type(Cypress.env("password"), { log: false });
 
     cy.get(".button-login").click();
 
@@ -27,7 +27,15 @@ describe("Testing the Sport Club Internacional ticker purchase flow", () => {
 
     cy.get(".nav-list").children().first().children().first().click();
 
-   cy.get(".col > div > .cta-button").click({ force: true });
+    cy.wait(3000)
+
+    cy.get(".cta-primary").click({ force: true });
+
+    cy.wait(6000)
+
+    cy.get(
+      ".desabilita-cursor bloco_1bc675f19d9801aeb383c1c34bb215ef1f87aa0c leaflet-interactive"
+    ).click({ force: true });
 
   });
 });
